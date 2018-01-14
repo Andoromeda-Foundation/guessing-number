@@ -54,7 +54,11 @@ export const get = (url: string, params: any = {}, q: boolean = true) => {
     query = qsStringify(params);
   }
 
-  return axios.get(`${config.backendHost}/${url}?${query}`);
+  if (query) {
+    return axios.get(`${config.backendHost}/${url}?${query}`);
+  }
+
+  return axios.get(`${config.backendHost}/${url}`);
 };
 
 export const post = (url: string, params: any = {}, q: boolean = true) => {

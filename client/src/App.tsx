@@ -47,6 +47,7 @@ export default class App extends React.Component<IPropTypes, IStateTypes> {
     // } catch (error) {
 
     // }
+    ethManager.init();
   }
 
   private handleChange = (event, value) => {

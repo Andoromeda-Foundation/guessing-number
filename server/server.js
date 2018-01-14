@@ -3,13 +3,14 @@
  * Created: 14 Jan 2018
  * Description:
  */
-import Express from 'express';
+const Express = require('express');
+const path = require('path');
 
 const port = 8890;
 
-const app = new express();
-app.use('/',
-  express.static(path.resolve(__dirname))
+const app = new Express();
+app.use('/backend',
+  Express.static(path.resolve(__dirname))
 );
 
 app.listen(port, (error) => {

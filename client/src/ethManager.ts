@@ -4,7 +4,7 @@
  * Description:
  */
 import * as Web3 from 'web3/src/index.js';
-import TruffleContract from 'truffle-contract';
+import * as TruffleContract from 'truffle-contract';
 
 import config from './config';
 import {get} from './utils';
@@ -40,11 +40,7 @@ class EthManager {
     this._web3 = new Web3(this._web3Provider);
 
     try {
-      const res = await get('/build/contracts/guessnumber.json');
-      const {code, data} = res.data;
-      if (code !== 0) {
-        throw new Error(`Error, code: ${code}`);
-      }
+      const {data} = await get('build/contracts/guessnumber.json');
       this._contracts.guessNumber = TruffleContract(data);
       this._contracts.guessNumber.setProvider(this._contracts);
     } catch (error) {
@@ -59,13 +55,9 @@ class EthManager {
     const instance = await this._contracts.guessNumber.deployed();
     
     console.log(this._web3.eth);
-    try {
-      const balance = await this.getBalance(instance.address, 'latest');
-      console.log(balance);
-      return balance as string;
-    } catch (error) {
-      console.warn(error);
-    }
+    const balance = await this.getBalance(instance.address, 'latest');
+    console.log(balance);
+    return balance as string;
   }
 
   private getBalance(address, str) {
