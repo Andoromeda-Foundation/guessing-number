@@ -42,7 +42,7 @@ class EthManager {
     try {
       const {data} = await get('build/contracts/guessnumber.json');
       this._contracts.guessNumber = TruffleContract(data);
-      this._contracts.guessNumber.setProvider(this._contracts);
+      this._contracts.guessNumber.setProvider(this._web3Provider);
     } catch (error) {
       throw error;
     }
@@ -61,27 +61,11 @@ class EthManager {
   }
 
   private getBalance(address, str) {
-    return new Promise((resolve, reject) => {
-      this._web3.eth.getBalance(address, str, (error, result) => {
-        if (error) {
-          reject(error);
-        } else {
-          resolve(result);
-        }
-      })
-    });
+    return this._web3.eth.getBalance(address, str);
   }
 
   public getAccounts() {
-    return new Promise((resolve, reject) => {
-      this._web3.eth.getAccounts((error, result) => {
-        if (error) {
-          reject(error);
-        } else {
-          resolve(result);
-        }
-      })
-    });
+    return this._web3.eth.getAccounts();
   }
 }
 

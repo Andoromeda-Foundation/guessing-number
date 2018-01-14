@@ -10,6 +10,15 @@ First:
 
 ```bash
 npm i
+
+npm i truffle -g
+cd server
+truffle compile
+```
+
+Then:
+
+```bash
 npm run server
 npm run dev
 ```

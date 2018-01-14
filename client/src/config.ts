@@ -4,6 +4,6 @@
  * Description:
  */
 export default {
-  providersHost: '//localhost:7545',
+  providersHost: 'http://127.0.0.1:7545',
   backendHost: '/backend'
 };
