@@ -1,0 +1,61 @@
+{
+  "name": "guessing-number",
+  "version": "0.1.0",
+  "description": "Guessing number.",
+  "main": "index.ts",
+  "scripts": {
+    "server": "node server/server.js",
+    "dev": "node client/server.dev.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lychees/1A2BGuessingNumber.git"
+  },
+  "authors": [
+    {
+      "name": "xiaodao"
+    },
+    {
+      "name": "dtysky"
+    }
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lychees/1A2BGuessingNumber/issues"
+  },
+  "homepage": "https://github.com/lychees/1A2BGuessingNumber#readme",
+  "devDependencies": {
+    "@types/node": "^6.0.52",
+    "@types/react": "^16.0.31",
+    "@types/react-dom": "^16.0.3",
+    "autoprefixer": "^7.2.4",
+    "awesome-typescript-loader": "^3.0.0-beta.17",
+    "css-loader": "^0.28.8",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "html-webpack-plugin": "^2.30.1",
+    "node-sass": "^4.7.2",
+    "postcss-loader": "^2.0.10",
+    "postcss-smart-import": "^0.7.6",
+    "precss": "^2.0.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-hot-loader": "^3.1.3",
+    "sass-loader": "^6.0.6",
+    "source-map-loader": "^0.1.5",
+    "style-loader": "^0.19.1",
+    "tslint": "^4.1.1",
+    "tslint-loader": "^3.5.3",
+    "typescript": "^2.6.2",
+    "webpack": "^3.10.0",
+    "webpack-dev-server": "^2.10.1"
+  },
+  "dependencies": {
+    "@types/axios": "^0.14.0",
+    "axios": "^0.17.1",
+    "express": "^4.16.2",
+    "hana-ui": "^1.0.0",
+    "querystring": "^0.2.0",
+    "truffle-contract": "^3.0.1",
+    "web3": "^1.0.0-beta.27"
+  }
+}
