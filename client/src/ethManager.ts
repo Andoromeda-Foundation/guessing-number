@@ -43,6 +43,15 @@ class EthManager {
       const {data} = await get('build/contracts/guessnumber.json');
       this._contracts.guessNumber = TruffleContract(data);
       this._contracts.guessNumber.setProvider(this._web3Provider);
+      //dirty hack for web3@1.0.0 support for localhost testrpc, see https://github.com/trufflesuite/truffle-contract/issues/56#issuecomment-331084530
+      const contracts = this._contracts.guessNumber;
+      if (typeof contracts.currentProvider.sendAsync !== "function") {
+        contracts.currentProvider.sendAsync = function() {
+          return contracts.currentProvider.send.apply(
+            contracts.currentProvider, arguments
+          );
+        };
+      }
     } catch (error) {
       throw error;
     }
